@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css js Clock</title>
+    <style>
+        body {
+            background-size: cover;
+            background-image: url("https://images.pexels.com/photos/206359/pexels-photo-206359.jpeg?cs=srgb&dl=pexels-pixabay-206359.jpg&fm=jpg");
+            background-repeat: no-repeat;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .circle {
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            border: 10px solid white;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .line {
+            width: 150px;
+            height: 10px;
+            background-color: white;
+            position: absolute;
+            transform-origin: right center; 
+            transform: translateX(-75px) rotate(var(--rotation, 0deg)); 
+        }
+    </style>
+</head>
+<body>
+    <div class="circle">
+        <div class="line sline"></div>
+        <div class="line mline"></div>
+        <div class="line hline"></div>
+    </div>
+    <script>
+        function updateClock(){
+            const now = new Date();
+            const hr = now.getHours();
+            const min = now.getMinutes();
+            const sec = now.getSeconds();
+
+            const hline = document.querySelector('.hline');
+            const hAngle = ((hr) / 12) * 360 + 90; 
+            hline.style.setProperty('--rotation', `${hAngle}deg`);
+
+            const mline = document.querySelector('.mline');
+            const mAngle = (min / 60) * 360 + 90; 
+            mline.style.setProperty('--rotation', `${mAngle}deg`);
+
+            const sline = document.querySelector('.sline');
+            const sAngle = (sec / 60) * 360 + 90; 
+            sline.style.setProperty('--rotation', `${sAngle}deg`);
+        }
+        setInterval(updateClock, 1000); 
+        updateClock(); 
+    </script>
+</body>
+</html>
