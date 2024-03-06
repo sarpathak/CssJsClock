@@ -15,6 +15,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            position: relative; 
         }
 
         .circle {
@@ -26,7 +27,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
+            position: absolute; 
+            top: 50%;
+            left: 50%; 
+            transform: translate(-50%, -50%); 
         }
         .line {
             width: 150px;
@@ -37,11 +41,14 @@
             transform: translateX(-75px) rotate(var(--rotation, 0deg)); 
         }
         .dig {
-                font-size: 24px;
-                color: white;
-                text-align: center;
-                margin-top: 20px;
-
+            font-size: 24px;
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            position: absolute; 
+            top: calc(50% + 190px);
+            left: 50%;
+            transform: translateX(-50%); 
         }
     </style>
 </head>
@@ -52,7 +59,7 @@
         <div class="line hline"></div>
     </div>
     <div class="dig" id="digC"></div>
-
+    
     <script>
         function updateClock(){
             const now = new Date();
