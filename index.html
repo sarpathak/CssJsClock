@@ -33,12 +33,33 @@
             transform: translate(-50%, -50%); 
         }
         .line {
-            width: 150px;
-            height: 10px;
-            background-color: white;
             position: absolute;
             transform-origin: right center; 
-            transform: translateX(-75px) rotate(var(--rotation, 0deg)); 
+            transition: transform 0s ease-in-out; 
+        }
+        .sline {
+            width: 150px;
+            height: 4px;
+            background-color: white;
+            top: 50%;
+            left: 50%;
+            transform: translate(-150px, -50%) rotate(var(--rotation, 0deg)); 
+        }
+        .mline {
+            width: 150px;
+            height: 7px;
+            background-color: white;
+            top: 50%;
+            left: 50%;
+            transform: translate(-150px, -50%) rotate(var(--rotation, 0deg)); 
+        }
+        .hline {
+            width: 100px;
+            height: 10px;
+            background-color: white;
+            top: 50%;
+            left: 50%;
+            transform: translate(-100px, -50%) rotate(var(--rotation, 0deg)); 
         }
         .dig {
             font-size: 24px;
@@ -50,6 +71,13 @@
             left: 50%;
             transform: translateX(-50%); 
         }
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+        }
     </style>
 </head>
 <body>
@@ -57,6 +85,7 @@
         <div class="line sline"></div>
         <div class="line mline"></div>
         <div class="line hline"></div>
+        <div class="dot"></div>
     </div>
     <div class="dig" id="digC"></div>
     
