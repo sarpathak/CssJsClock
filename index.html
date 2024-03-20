@@ -71,12 +71,22 @@
             left: 50%;
             transform: translateX(-50%); 
         }
+        .date{
+          font-size: 24px;
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            position: absolute; 
+            top: calc(50% + 225px);
+            left: 50%;
+            transform: translateX(-50%); 
+        }
         .dot {
-            width: 10px;
-            height: 10px;
-            background-color: white;
-            border-radius: 50%;
-            position: absolute;
+          width: 10px;
+          height: 10px;
+          background-color: white;
+          border-radius: 50%;
+          position: absolute;
         }
     </style>
 </head>
@@ -88,7 +98,7 @@
         <div class="dot"></div>
     </div>
     <div class="dig" id="digC"></div>
-    
+    <div class="date" id="datE"></div>
     <script>
         function updateClock(){
             const now = new Date();
@@ -111,6 +121,9 @@
             const digi = document.getElementById('digC');
             digi.textContent = `${formatTime(x(hr))}:${formatTime(min)}:${formatTime(sec)} ${y(hr)}`;
 
+            const dateContainer = document.getElementById('datE');
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            dateContainer.textContent = now.toLocaleDateString('en-US', dateOptions);
         }
 
         function formatTime(time) {
